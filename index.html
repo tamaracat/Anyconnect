@@ -11,29 +11,61 @@ ITC" size="6" color="#FF00FF">
 </font><font face="Snap ITC" color="#FF00FF" size="7">&nbsp;</font><i><b><font
 color="#FF0000" size="7" face="Sylfaen"> SSL VPN Service by the Cisco
 ASA5500</font></b></i></p>
-<body onload="csco_ShowLoginForm('lform');csco_ShowLanguageSelector('selector')">
-<table>
-<tr><td colspan=3 height=20 align=right><div id="selector" style="width:
-300px"></div></td></tr>
-<tr><td></td><td></td><td></td></tr>
+<tbody><tr><td colspan="2" style="margin-left:40">&nbsp;</td></tr>
+
 <tr>
-<td height="379"></td>
-<td height="379"></td>
-<td align=middle valign=middle>
-<div id=lform >
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>Loading...</p>
-</div>
+    <td>
+    Group:
+    </td>
+    <td>
+    <div><select id="group_list" name="group_list" style="z-index:1; float:left;" onchange="updateLogonForm(this.value,{'DefaultWEBVPNGroup':true,'AnyC':true})">
+    
+    <option value="DefaultWEBVPNGroup" selected="">DUO</option>
+
+    <option value="AnyC">NUVPN</option>
+
+    </select>
+    </div>
+    </td>
+</tr>
+
+    <tr height="20">
+    <td nowrap="" id="username_field">
+    NetID:
+    </td>
+    <td>
+    <input autocomplete="off" id="username" name="username" style="border: 1px solid gray; background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAXtJREFUOBGVUj2LwkAUnIjBICIIKe8gWKRKo2BvYXMgWNlYWZ3gn1B/htekibWVcH1aIVV+wQULCxsRtMrtrGYv8RLUB8nuvjczu+9DWywWH3EcL8X3jidM07QfAfucz+ffhJdeIZNwu+iLexoFnrr5Cr/+05xSOvBoX61WYdt2BvaSgGVZ6PV6+QKGYahApVKBKJY6p2PKeduUufb7fbTbbaxWKxwOB0ynU+x2O7ium4ndk3l+KYU8AW02m8UM8Jnn81limMLlcsnDK59IMRKHiXpBQibiEZkY0co3sSxlDegoMsdx0O12Ua/XEUUR1us1jsejhFNEvaBIgK07nU4IwxDNZhOdTicDLXO205OViYrDZrORLg5Qq9VSdUpwJSEwoUjiuF+FOEzTxGAwwH6/x3a7zUD+piXjBpLukDwej2XenufJdNLQhzUYjUao1WpoNBpywIbDYZqPwi6wz6xyEATQdV2ROKmJEVMoIECszdL3ffb7n5EsnJNf8S6HAZZBgLIAAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;" value="">
+    </td>
+    </tr>
+
+    <tr>
+    <td nowrap="" id="password_field">
+    Password:
+    </td>
+    <td>
+    <input autocomplete="off" id="password_input" name="password" style="border: 1px solid gray; background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAXtJREFUOBGVUj2LwkAUnIjBICIIKe8gWKRKo2BvYXMgWNlYWZ3gn1B/htekibWVcH1aIVV+wQULCxsRtMrtrGYv8RLUB8nuvjczu+9DWywWH3EcL8X3jidM07QfAfucz+ffhJdeIZNwu+iLexoFnrr5Cr/+05xSOvBoX61WYdt2BvaSgGVZ6PV6+QKGYahApVKBKJY6p2PKeduUufb7fbTbbaxWKxwOB0ynU+x2O7ium4ndk3l+KYU8AW02m8UM8Jnn81limMLlcsnDK59IMRKHiXpBQibiEZkY0co3sSxlDegoMsdx0O12Ua/XEUUR1us1jsejhFNEvaBIgK07nU4IwxDNZhOdTicDLXO205OViYrDZrORLg5Qq9VSdUpwJSEwoUjiuF+FOEzTxGAwwH6/x3a7zUD+piXjBpLukDwej2XenufJdNLQhzUYjUao1WpoNBpywIbDYZqPwi6wz6xyEATQdV2ROKmJEVMoIECszdL3ffb7n5EsnJNf8S6HAZZBgLIAAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;" type="password">
+    </td>
+    </tr>
+
+
+    <tr id="secondary_password_tr">
+    <td nowrap="" id="secondary_password_field">
+    DUO Authentication Method:
+    </td>
+    <td>
+    <input autocomplete="off" id="secondary_password_input" name="secondary_password" style="border: 1px solid gray; background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAXtJREFUOBGVUj2LwkAUnIjBICIIKe8gWKRKo2BvYXMgWNlYWZ3gn1B/htekibWVcH1aIVV+wQULCxsRtMrtrGYv8RLUB8nuvjczu+9DWywWH3EcL8X3jidM07QfAfucz+ffhJdeIZNwu+iLexoFnrr5Cr/+05xSOvBoX61WYdt2BvaSgGVZ6PV6+QKGYahApVKBKJY6p2PKeduUufb7fbTbbaxWKxwOB0ynU+x2O7ium4ndk3l+KYU8AW02m8UM8Jnn81limMLlcsnDK59IMRKHiXpBQibiEZkY0co3sSxlDegoMsdx0O12Ua/XEUUR1us1jsejhFNEvaBIgK07nU4IwxDNZhOdTicDLXO205OViYrDZrORLg5Qq9VSdUpwJSEwoUjiuF+FOEzTxGAwwH6/x3a7zUD+piXjBpLukDwej2XenufJdNLQhzUYjUao1WpoNBpywIbDYZqPwi6wz6xyEATQdV2ROKmJEVMoIECszdL3ffb7n5EsnJNf8S6HAZZBgLIAAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;" type="password">
+    </td>
+</tr>
+
+<tr height="40" align="center">
+<td colspan="2" align="middle">
+<input style="font-weight: bold; cursor: pointer;" type="submit" name="Login" value="Login">
 </td>
 </tr>
-<tr>
-<td width="251"></td>
-<td width="1"></td>
-<td align=right valign=right width="800">
-<img border="1" src="/+CSCOU+/asa5500.jpg" width="660" height="220" align="middle">
-</td></tr>
-</table>
-</body>
+
+</tbody>
+
+
+
 </html>
+
